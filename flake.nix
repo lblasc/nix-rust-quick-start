@@ -48,6 +48,7 @@
             # https://search.nixos.org/packages
             pkgs.pkg-config
             pkgs.sqlite
+            pkgs.sqlcipher
             # Add additional build inputs here
           ] ++ lib.optionals pkgs.stdenv.isDarwin [
             # Additional darwin specific inputs can be set here
