@@ -123,6 +123,10 @@
 
         packages = {
           default = my-crate;
+          dockerImage = pkgs.dockerTools.buildImage {
+            name = my-crate.name;
+            config = { Entrypoint = [ "${my-crate}/bin/${my-crate.name}" ]; };
+          };
         } // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
           my-crate-llvm-coverage = craneLibLLvmTools.cargoLlvmCov (commonArgs // {
             inherit cargoArtifacts;
