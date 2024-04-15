@@ -30,7 +30,13 @@
 
         inherit (pkgs) lib;
 
+        # compiler from nixpkgs
         craneLib = crane.lib.${system};
+
+        # unstable compiler from fenix
+        #craneLib = crane.lib.${system}.overrideToolchain
+        #  fenix.packages.${system}.minimal.toolchain;
+
         src = craneLib.cleanCargoSource (craneLib.path ./.);
 
         # Common arguments can be set here to avoid repeating them later
