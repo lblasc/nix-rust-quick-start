@@ -45,6 +45,9 @@
           strictDeps = true;
 
           buildInputs = [
+            # https://search.nixos.org/packages
+            pkgs.pkg-config
+            pkgs.sqlite
             # Add additional build inputs here
           ] ++ lib.optionals pkgs.stdenv.isDarwin [
             # Additional darwin specific inputs can be set here
